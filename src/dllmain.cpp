@@ -25,7 +25,7 @@ extern "C" {
     }
 
     __declspec(dllexport) const char* GetModVersion() {
-        return "1.1.0";
+        return "1.2.0";
     }
 
     __declspec(dllexport) const char* GetModAuthor() {
