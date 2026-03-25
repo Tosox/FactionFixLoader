@@ -61,8 +61,8 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 0,1,2,0
- PRODUCTVERSION 0,1,2,0
+ FILEVERSION 1,3,0,0
+ PRODUCTVERSION 1,3,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -79,12 +79,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Tosox"
             VALUE "FileDescription", "A wrapper mod for the FactionFix.dll"
-            VALUE "FileVersion", "0.1.2.0"
+            VALUE "FileVersion", "1.3.0"
             VALUE "InternalName", "FactionFixLoader"
             VALUE "LegalCopyright", "Copyright © 2026"
             VALUE "OriginalFilename", "FactionFixLoader.dll"
             VALUE "ProductName", "FactionFixLoader"
-            VALUE "ProductVersion", "0.1.2.0"
+            VALUE "ProductVersion", "1.3.0"
         END
     END
     BLOCK "VarFileInfo"

@@ -1,34 +1,40 @@
 #include "CoHModSDK.hpp"
 
-#pragma comment(lib, "CoHModSDK.lib")
+namespace {
+    bool OnInitialize() {
+        if (LoadLibraryA("FactionFix.dll") == nullptr) {
+            ModSDK::Runtime::Log(
+                CoHModSDKLogLevel_Warning,
+                "Failed to load FactionFix.dll"
+            );
+            return false;
+        }
+
+        return true;
+    }
+
+    bool OnModsLoaded() {
+        return true;
+    }
+
+    void OnShutdown() {}
+
+    const CoHModSDKModuleV1 kModule = {
+        .abiVersion = COHMODSDK_ABI_VERSION,
+        .size = sizeof(CoHModSDKModuleV1),
+        .modId = "de.tosox.factionfixloader",
+        .name = "FactionFix Loader",
+        .version = "1.3.0",
+        .author = "Tosox",
+        .OnInitialize = &OnInitialize,
+        .OnModsLoaded = &OnModsLoaded,
+        .OnShutdown = &OnShutdown,
+    };
+}
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD reason, LPVOID reserved) {
     DisableThreadLibraryCalls(hModule);
     return TRUE;
 }
 
-extern "C" {
-    __declspec(dllexport) void OnSDKLoad() {
-        LoadLibraryA("FactionFix.dll");
-    }
-
-    __declspec(dllexport) void OnGameStart() {
-        // Unused
-    }
-
-    __declspec(dllexport) void OnGameShutdown() {
-        // Unused
-    }
-
-    __declspec(dllexport) const char* GetModName() {
-        return "FactionFix Loader";
-    }
-
-    __declspec(dllexport) const char* GetModVersion() {
-        return "1.2.0";
-    }
-
-    __declspec(dllexport) const char* GetModAuthor() {
-        return "Tosox";
-    }
-}
+COHMODSDK_EXPORT_MODULE(kModule);
