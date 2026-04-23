@@ -3,17 +3,9 @@
 namespace {
     bool OnInitialize() {
         if (LoadLibraryA("FactionFix.dll") == nullptr) {
-            ModSDK::Runtime::Log(
-                CoHModSDKLogLevel_Warning,
-                "Failed to load FactionFix.dll"
-            );
-            return false;
+            ModSDK::Runtime::LogWarning("Failed to load FactionFix.dll");
         }
 
-        return true;
-    }
-
-    bool OnModsLoaded() {
         return true;
     }
 
@@ -24,10 +16,9 @@ namespace {
         .size = sizeof(CoHModSDKModuleV1),
         .modId = "de.tosox.factionfixloader",
         .name = "FactionFix Loader",
-        .version = "1.3.0",
+        .version = "1.4.0",
         .author = "Tosox",
         .OnInitialize = &OnInitialize,
-        .OnModsLoaded = &OnModsLoaded,
         .OnShutdown = &OnShutdown,
     };
 }

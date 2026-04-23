@@ -14,7 +14,7 @@ loads the `FactionFix.dll` library.
 
 ## 🛠️ Building
 
-If you want to build the mod yourself, open the solution in Visual Studio 2022 and build `Release|x86`.
+If you want to build the mod yourself, open the solution in Visual Studio and build `Release|x86`.
 
 ## 📄 License
 
